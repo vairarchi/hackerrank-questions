@@ -1,0 +1,89 @@
+2. Go: Reversing TCP Server
+
+
+Implement a TCP server that accepts messages in the form of a string. Reverse the messages and return them to the client.
+
+ 
+
+The stub function accepts an array of strings, messages, runs the server, waits for it to be ready, then sends the messages one by one to the server and prints responses. The server address is given in the constant address along with maxBufferSize for reading/writing purposes.
+
+ 
+
+Example
+
+messages= ["adi", "glm", "tuv"]
+
+ 
+
+The TCP server should respond with ["ida","mlg","vut"].
+ 
+
+Function Description
+
+Complete the function TCPServer in the editor below.
+
+TCPServer has the following parameter:
+
+    bool ready:  a channel that indicates whether the server is ready
+
+ 
+
+Returns
+
+    None:   all responses should be read from the TCP connection initiated by a TCP client 
+
+ 
+
+Constraints
+
+• The total number of messages does not exceed 500.	
+• Each message contains a maximum of 1000 lower case English letters only.
+
+ 
+
+Input Format For Custom Testing
+
+The first line contains an integer, n, the number of elements in messages.
+Each of the next i lines (where 0 ≤ i < n) contains a string, messages[i].
+
+Sample Case 0
+
+Sample Input For Custom Testing
+
+STDIN    Function
+-----    --------
+3     →  messages[] size n = 3
+abc   →  messages = ['abc', 'def', 'ghi']
+def
+ghi
+
+Sample Output
+
+cba
+fed
+ihg
+
+Explanation
+
+The server reverses the strings and sends them back to the main function.
+
+Sample Case 1
+
+Sample Input For Custom Testing
+
+4
+eno
+owt
+eerht
+ruof
+
+Sample Output
+
+one
+two
+three
+four
+
+Explanation
+
+The server reverses the strings and sends them back to the main function.
