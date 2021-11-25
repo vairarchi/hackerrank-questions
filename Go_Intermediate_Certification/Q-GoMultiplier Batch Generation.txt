@@ -1,0 +1,118 @@
+Go: Multiplier Batch Generation
+
+Implement a server that generates a multiplication table a given integer by adding the value to the previous value in the sequence starting from 0. More formally, given an integer toAdd, the ith term of the sequence is given by (i - 1) * toAdd where i > 0. For example, the sequence for toAdd = 4 is 0, 4, 8, 12, 16, . . .
+
+ 
+
+The server should send the results in batches of a given size. It should limit the rate of batches such that every batch is sent with a delay interval of at least 10 milliseconds. The main function accepts four arguments:
+
+• skipBatches - The number of batches to skip from the beginning	
+• printBatches -  The number of batches to be printed to the console	
+• batchSize - The size of each batch	
+• toAdd - The number for which the multiplication table is to be generated
+
+ 
+
+The server is expected to be take four arguments:
+
+• A boolean channel that will accept requests.	
+• The result int channel through which each batch will be sent back.	
+• The size of the batch.	
+• The value for which the table is to be generated.
+
+ 
+
+Example
+
+skipBatches = 0
+printBatches = 4
+batchSize = 3
+toAdd = 5
+
+ 
+
+Print 4 batches of 3 numbers each. The batches are [0, 5, 10], [15, 20, 25], [30, 35, 40], [45, 50, 55].
+ 
+
+Function Description
+
+Complete the function BurstyRateLimiter in the editor below. The function will return nothing as all its results will be returned through a channel.
+
+ 
+
+BurstyRateLimiter has the following parameter(s):
+
+    requestChan:  a channel of booleans (chan bool)
+    resultChan:  a channel of integers (chan int)
+    batchSize: the size of the batch (int)
+    toAdd: the number which will be added to the prior value in the sequence (int)
+
+ 
+
+Constraints
+
+• 0 ≤ skipBatches ≤ 100	
+• 1 ≤ printBatches ≤ 100	
+• 1 ≤ batchSize ≤ 10	
+• 1 ≤ toAdd ≤ 100
+
+Input Format For Custom Testing
+
+The first line contains an integer, n, denoting the number of elements in ARRAY_NAME.
+Each line i of the n subsequent lines (where 0 ≤ i < n) contains a(n) DATA_TYPE describing ARRAY_NAMEi.
+
+Sample Case 0
+
+Sample Input For Custom Testing
+
+STDIN    Function
+-----    --------
+0    →   skipBatches = 0
+4    →   printBatches = 4
+2    →   batchSize = 2
+3    →   toAdd = 3
+
+Sample Output
+
+0
+3
+-----
+6
+9
+-----
+12
+15
+-----
+18
+21
+
+Explanation
+
+0 batches should be skipped, 4 batches should be returned. Each batch should contain 2 elements. Every element is a result of every previous element being added to 3, the first element is 0.
+
+Sample Case 1
+
+Sample Input For Custom Testing
+
+1
+3
+3
+2
+
+Sample Output
+
+6
+8
+10
+-----
+12
+14
+16
+-----
+18
+20
+22
+
+Explanation
+
+Skip the first batch, [0, 2, 4], return 3 batches, each with 3 elements. Each element is the result of adding 2 to the previous element.
